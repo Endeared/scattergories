@@ -143,6 +143,18 @@ body {
     overflow: hidden;
 }
 
+.listItem {
+    font-size: 36px;
+}
+
+.inputItem {
+    width: 80%;
+    height: 50%;
+    text-align: center;
+    font-family: 'Dongle';
+    font-size: 36px;
+}
+
 </style>
 
 <body>
@@ -153,40 +165,40 @@ body {
                 <div id="listTitle">LIST</div>
             </div>
             <div class="listItemRow" id="firstListItem">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
             <div class="listItemRow" id="lastListItem">
-                <div class="listItem">test</div>
+                <div class="listItem"></div>
             </div>
         </div>
         <div class="column">
@@ -194,40 +206,40 @@ body {
                 <div id="inputTitle">INPUTS</div>
             </div>
             <div class="inputItemRow" id="firstInputItem">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
             <div class="inputItemRow" id="lastInputItem">
-                <div class="inputItem">test</div>
+                <input class="inputItem"></input>
             </div>
         </div>
         <div class="column">
@@ -402,6 +414,47 @@ list_12 = ["Famous Females",
 "Junk Food",
 "Things That Grow",
 "Companies"]
+
+let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','w']
+allLists = [list_1, list_2, list_3, list_4, list_5, list_6, list_7, list_8, list_9, list_10, list_11, list_12]
+
+let defaultTime = 120;
+let clicks = 1;
+
+let randomList = allLists[Math.floor(Math.random() * allLists.length)];
+console.log(randomList)
+
+let itemDivs = document.querySelectorAll('.listItem')
+
+for (let i = 0; i < itemDivs.length; i++) {
+    let thisItemDiv = itemDivs[i]
+    thisItemDiv.innerHTML = (i + 1) + '. ' + randomList[i].toUpperCase()
+}
+
+let letterBtn = document.getElementById('letter')
+let timerBtn = document.getElementById('timer')
+let restartBtn = document.getElementById('restart')
+
+letterBtn.addEventListener('click', function() {
+    console.log('test')
+    let randomLetter = letters[Math.floor(Math.random() * letters.length)];
+    letterBtn.innerHTML = randomLetter.toUpperCase();
+})
+
+timerBtn.addEventListener('click', function() {
+    clicks += 1;
+    
+    if (clicks == 1) {
+        timerBtn.innerHTML = 120
+    } else if (clicks == 2) {
+        timerBtn.innerHTML = 150
+    } else if (clicks == 3) {
+        timerBtn.innerHTML = 180
+    } else if (clicks > 3) {
+        clicks = 1
+        timerBtn.innerHTML = 120
+    }
+})
 
 </script>
 </html>
