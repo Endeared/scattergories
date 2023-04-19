@@ -250,7 +250,7 @@ body {
                 <button id="timer">120</button>
             </div>
             <div class="itemRow" id="lastItemRow">
-                <button id="restart">RESTART</button>
+                <button id="restart">START / RESTART</button>
             </div>
         </div>
     </div>
@@ -415,21 +415,10 @@ list_12 = ["Famous Females",
 "Things That Grow",
 "Companies"]
 
-let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','w']
-allLists = [list_1, list_2, list_3, list_4, list_5, list_6, list_7, list_8, list_9, list_10, list_11, list_12]
-
 let defaultTime = 120;
 let clicks = 1;
-
-let randomList = allLists[Math.floor(Math.random() * allLists.length)];
-console.log(randomList)
-
-let itemDivs = document.querySelectorAll('.listItem')
-
-for (let i = 0; i < itemDivs.length; i++) {
-    let thisItemDiv = itemDivs[i]
-    thisItemDiv.innerHTML = (i + 1) + '. ' + randomList[i].toUpperCase()
-}
+let started = false
+let countdown
 
 let letterBtn = document.getElementById('letter')
 let timerBtn = document.getElementById('timer')
@@ -446,14 +435,46 @@ timerBtn.addEventListener('click', function() {
     
     if (clicks == 1) {
         timerBtn.innerHTML = 120
+        defaultTime = 120
     } else if (clicks == 2) {
         timerBtn.innerHTML = 150
+        defaultTime = 150
     } else if (clicks == 3) {
         timerBtn.innerHTML = 180
+        defaultTime = 180
     } else if (clicks > 3) {
         clicks = 1
         timerBtn.innerHTML = 120
+        defaultTime = 120
     }
+})
+
+restartBtn.addEventListener('click', function() {
+    if (started == true) {
+        clearInterval(countdown)
+        timerBtn.innerHTML = defaultTime
+    }
+    let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','w']
+    allLists = [list_1, list_2, list_3, list_4, list_5, list_6, list_7, list_8, list_9, list_10, list_11, list_12]
+    let randomList = allLists[Math.floor(Math.random() * allLists.length)];
+    let itemDivs = document.querySelectorAll('.listItem')
+    let inputDivs = document.querySelectorAll('.inputItem')
+    for (let i = 0; i < itemDivs.length; i++) {
+        let thisItemDiv = itemDivs[i]
+        thisItemDiv.innerHTML = (i + 1) + '. ' + randomList[i].toUpperCase()
+        let thisInputDiv = inputDivs[i]
+        thisInputDiv.value = ''
+    }
+    started = true
+    countdown = setInterval(function () {
+        let currentTime = timerBtn.innerHTML
+        let newTime = currentTime - 1
+        if (newTime >= 0) {
+           timerBtn.innerHTML = newTime 
+        } else {
+            clearInterval(countdown)
+        }
+    }, 1000)
 })
 
 </script>
