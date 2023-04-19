@@ -103,19 +103,44 @@ body {
 }
 
 #letter {
-    height: 175%;
+    height: 100%;
+    width: 100%;
+    line-height: 90%;
+    border: none;
     text-align: center;
     font-size: 400px;
-}
-
-#timer {
-    height: 90%;
-    font-size: 200px;
+    font-family: 'Dongle';
+    margin: 0;
+    padding: 0;
+    background: none;
+    overflow: hidden;
 }
 
 #restart {
-    height: 45%;
+    width: 100%;
+    height: 100%;
     font-size: 96px;
+    font-family: 'Dongle';
+    background: none;
+    border: none;
+}
+
+#restart:hover, #letter:hover {
+    background-color: rgba(128, 128, 128, 0.349);
+}
+
+#timer {
+    width: 100%;
+    height: 100%;
+    font-size: 200px;
+    font-family: 'Dongle';
+    background: none;
+    text-align: center;
+    border: none;
+    line-height: 90%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 </style>
@@ -207,13 +232,13 @@ body {
         </div>
         <div class="column">
             <div class="itemRow">
-                <div id="letter">H</div>
+                <button id="letter">H</button>
             </div>
             <div class="itemRow">
-                <div id="timer">120</div>
+                <button id="timer">120</button>
             </div>
             <div class="itemRow" id="lastItemRow">
-                <div id="restart">RESTART</div>
+                <button id="restart">RESTART</button>
             </div>
         </div>
     </div>
