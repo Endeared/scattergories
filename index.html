@@ -39,11 +39,18 @@ body {
 
 .titleRow {
     height: 16%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 36px;
+    border: 3px solid black;
+    border-right: none;
+    border-bottom: none;
+    background: repeating-linear-gradient(
+        45deg, #dbdbdb, #dadada 2px, #ffffff 2px, #ffffff 6px
+    )
 }
 
 .listItemRow, .inputItemRow {
@@ -75,6 +82,12 @@ body {
     border: 3px solid black;
     border-bottom: 0px;
     margin-left: 0.1vw;
+    background-image: radial-gradient(#dadada 20%, transparent 20%),
+     radial-gradient(#fafafa 20%, transparent 20%);
+    background-color: rgb(255, 255, 255);
+    background-position: 0 0, 50px 50px;
+    background-size: 10px 10px;
+    width: 100%;
 }
 
 #lastItemRow {
