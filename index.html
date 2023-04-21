@@ -418,6 +418,9 @@ list_12 = ["Famous Females",
 let defaultTime = 120;
 let clicks = 1;
 let started = false
+let firstLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','w']
+let letterDiv = document.getElementById('letter')
+letterDiv.innerHTML = firstLetters[Math.floor(Math.random() * firstLetters.length)]
 let countdown
 
 let letterBtn = document.getElementById('letter')
@@ -456,7 +459,10 @@ restartBtn.addEventListener('click', function() {
         timerBtn.innerHTML = defaultTime
     }
     allLists = [list_1, list_2, list_3, list_4, list_5, list_6, list_7, list_8, list_9, list_10, list_11, list_12]
-    let randomList = allLists[Math.floor(Math.random() * allLists.length)];
+    let randomIndex = Math.floor(Math.random() * allLists.length)
+    let randomList = allLists[randomIndex];
+    let listTitleDiv = document.getElementById('listTitle')
+    listTitleDiv.innerHTML = `LIST ${randomIndex + 1}`
     let itemDivs = document.querySelectorAll('.listItem')
     let inputDivs = document.querySelectorAll('.inputItem')
     for (let i = 0; i < itemDivs.length; i++) {
