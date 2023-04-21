@@ -426,6 +426,7 @@ let restartBtn = document.getElementById('restart')
 
 letterBtn.addEventListener('click', function() {
     console.log('test')
+    let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','w']
     let randomLetter = letters[Math.floor(Math.random() * letters.length)];
     letterBtn.innerHTML = randomLetter.toUpperCase();
 })
@@ -454,7 +455,6 @@ restartBtn.addEventListener('click', function() {
         clearInterval(countdown)
         timerBtn.innerHTML = defaultTime
     }
-    let letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','w']
     allLists = [list_1, list_2, list_3, list_4, list_5, list_6, list_7, list_8, list_9, list_10, list_11, list_12]
     let randomList = allLists[Math.floor(Math.random() * allLists.length)];
     let itemDivs = document.querySelectorAll('.listItem')
