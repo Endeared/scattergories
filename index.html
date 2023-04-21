@@ -420,7 +420,7 @@ let clicks = 1;
 let started = false
 let firstLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','t','w']
 let letterDiv = document.getElementById('letter')
-letterDiv.innerHTML = firstLetters[Math.floor(Math.random() * firstLetters.length)]
+letterDiv.innerHTML = firstLetters[Math.floor(Math.random() * firstLetters.length)].toUpperCase()
 let countdown
 
 let letterBtn = document.getElementById('letter')
