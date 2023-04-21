@@ -472,9 +472,41 @@ restartBtn.addEventListener('click', function() {
         if (newTime >= 0) {
            timerBtn.innerHTML = newTime 
         } else {
+            alert('Time is up!')
             clearInterval(countdown)
         }
     }, 1000)
+})
+
+document.addEventListener('keydown', func => {
+    if (func.key !== 'ArrowUp' && func.key !== 'ArrowDown') return;
+    const focusElement = document.querySelector(':focus')
+    const inputElements = [...document.querySelectorAll('.inputItem')]
+    let inputElementsLen = inputElements.length - 1;
+
+    if (!inputElements.includes(focusElement)) {
+        console.log('doesnt include')
+        return;
+    }
+    func.preventDefault();
+
+
+    let focusIndex = inputElements.indexOf(focusElement);
+    let newFocus;
+    if (func.key == 'ArrowUp') {
+        if (focusIndex == 0) {
+            newFocus = inputElements[inputElementsLen];
+        } else {
+            newFocus = inputElements[focusIndex - 1];
+        }
+    } else if (func.key == 'ArrowDown') {
+        if (focusIndex == inputElementsLen) {
+            newFocus = inputElements[0];
+        } else {
+            newFocus = inputElements[focusIndex + 1];
+        }
+    }
+    newFocus.focus();
 })
 
 </script>
